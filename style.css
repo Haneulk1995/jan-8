@@ -1,0 +1,113 @@
+/* ---------- BASE ---------- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, #ffd6e8 0%, #ffeef6 60%, #ffffff 100%);
+  font-family: "Comic Sans MS", cursive;
+  overflow: hidden;
+}
+
+/* ---------- GAME WRAPPER ---------- */
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- START SCREEN ---------- */
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #ffe6f1, #ffd6e8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 {
+  color: #ff4f9a;
+  font-size: 32px;
+  margin-bottom: 10px;
+  text-shadow: 0 0 12px rgba(255,79,154,0.6);
+}
+
+/* ---------- PLAY BUTTON ---------- */
+#playBtn {
+  margin-top: 20px;
+  padding: 16px 48px;
+  font-size: 22px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff4f9a, #ff85bd);
+  color: white;
+  cursor: pointer;
+  box-shadow:
+    0 0 20px rgba(255,79,154,0.7),
+    0 8px 20px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  animation: floatBtn 2.5s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+#playBtn:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 35px rgba(255,79,154,1),
+    0 12px 30px rgba(0,0,0,0.25);
+}
+
+/* ---------- SCORE ---------- */
+#score {
+  margin-bottom: 12px;
+  padding: 6px 16px;
+  font-size: 18px;
+  color: #ff4f9a;
+  background: rgba(255,255,255,0.7);
+  border-radius: 20px;
+  box-shadow:
+    0 0 12px rgba(255,79,154,0.4);
+  text-shadow: 0 0 8px rgba(255,79,154,0.5);
+}
+
+/* ---------- CANVAS ---------- */
+canvas {
+  display: none;
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(180deg, #b3ecff 0%, #e6f9ff 100%);
+  border-radius: 18px;
+  box-shadow:
+    0 0 25px rgba(255,79,154,0.45),
+    0 0 50px rgba(255,214,232,0.7);
+  animation: popIn 0.6s ease;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- MOBILE FRIENDLY ---------- */
+@media (max-width: 500px) {
+  canvas {
+    width: 90vw;
+    height: 70vh;
+  }
+}
